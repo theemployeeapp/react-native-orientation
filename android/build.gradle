@@ -1,10 +1,9 @@
 buildscript {
     ext {
-        kotlinVersion = '1.6.20'
-        buildToolsVersion = '29.0.2'
-        compileSdkVersion = 29
-        targetSdkVersion = 29
-        minSdkVersion = 18
+      buildToolsVersion = "30.0.3"
+      minSdkVersion = 21
+      compileSdkVersion = 31
+      targetSdkVersion = 31
     }
     ext.detoxKotlinVersion = ext.kotlinVersion
 
