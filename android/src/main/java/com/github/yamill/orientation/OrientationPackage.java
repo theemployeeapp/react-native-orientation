@@ -15,19 +15,16 @@ public class OrientationPackage implements ReactPackage {
     public OrientationPackage() {
     }
 
-    @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Arrays.<NativeModule>asList(
             new OrientationModule(reactContext)
         );
     }
 
-    @Override
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
 
-    @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.asList();
     }

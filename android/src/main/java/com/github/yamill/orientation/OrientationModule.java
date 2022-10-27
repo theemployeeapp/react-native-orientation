@@ -33,7 +33,7 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Lif
         final ReactApplicationContext ctx = reactContext;
 
         receiver = new BroadcastReceiver() {
-            @Override
+            
             public void onReceive(Context context, Intent intent) {
                 Configuration newConfig = intent.getParcelableExtra("newConfig");
                 Log.d("receiver", String.valueOf(newConfig.orientation));
@@ -52,7 +52,7 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Lif
         ctx.addLifecycleEventListener(this);
     }
 
-    @Override
+    
     public String getName() {
         return "Orientation";
     }
@@ -115,7 +115,7 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Lif
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
-    @Override
+    
     public @Nullable Map<String, Object> getConstants() {
         HashMap<String, Object> constants = new HashMap<String, Object>();
         int orientationInt = getReactApplicationContext().getResources().getConfiguration().orientation;
@@ -142,14 +142,14 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Lif
         }
     }
 
-    @Override
+    
     public void onHostResume() {
         final Activity activity = getCurrentActivity();
 
         assert activity != null;
         activity.registerReceiver(receiver, new IntentFilter("onConfigurationChanged"));
     }
-    @Override
+    
     public void onHostPause() {
         final Activity activity = getCurrentActivity();
         if (activity == null) return;
@@ -161,8 +161,8 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Lif
             FLog.e(ReactConstants.TAG, "receiver already unregistered", e);
         }
     }
-    @Override
+    
     public void onHostDestroy() {
-        
+
     }
 }
